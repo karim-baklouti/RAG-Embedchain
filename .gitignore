@@ -1,4 +1,6 @@
 db
-__pycahe__
 .env
 session_history.json
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
