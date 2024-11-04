@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "llmpdf"
+version = "0.1.0"
+description = ""
+authors = ["karim"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+protobuf = "<3.21.0"
+python = ">=3.11,<=3.13"
+python-multipart = "^0.0.16"
+
+[tool.poetry.group.dev.dependencies]
+langchain-huggingface="^0.1.0"
+embedchain = "^0.1.123"
+fastapi = "^0.115.4"
+streamlit = "^1.39.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
