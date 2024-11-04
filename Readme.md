@@ -1,4 +1,4 @@
-# chatbot MLOps with Embedchain
+# chatbot for MLOps with Embedchain
 
 ## Installation
 ### install Poetry
@@ -29,7 +29,7 @@ poetry install --no-root
 
 
 ## FastApi(llm.py)
-This FastAPI application provides an interface for interacting with an Embedchain instance, which is used to process natural language queries in French. It also includes functionality for uploading files (PDF , JSON and CSV) to Embedchain's ChromaDB.
+This FastAPI application provides an interface for interacting with an Embedchain instance, which is used to process natural language queries. It also includes functionality for uploading files (PDF , JSON and CSV) to Embedchain's ChromaDB.
 
 ## Streamlit (app.py)
  chatbot interface in Streamlit that automatically handles multiple sessions, allowing users to chat with an assistant. The application interacts with a FastAPI endpoint to retrieve responses for user queries and automatically persists the chat history.
@@ -43,5 +43,7 @@ poetry run python llm.py
 ```bash 
 poetry run streamlit run app.py
 ```
+## Screenshot about RestApi
+![alt text](/screenshots/backend.png)
 ## Screenshots about user Interface
 ![alt text](/screenshots/image.png)
