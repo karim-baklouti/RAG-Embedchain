@@ -14,7 +14,6 @@ python-multipart = "^0.0.16"
 langchain-huggingface="^0.1.0"
 embedchain = "^0.1.123"
 fastapi = "^0.115.4"
-streamlit = "^1.39.0"
 
 [build-system]
 requires = ["poetry-core"]

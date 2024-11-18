@@ -8,7 +8,7 @@
 ```bash
 poetry install --no-root
 ```
-## Configuration Details (embedchain_setup.py)    
+## Configuration Details (backend/embedchain_setup.py)    
  Hugging Face Token: Replace "your_huggingface_token_here" with your actual Hugging Face access token.
 
    Model Configuration:
@@ -28,10 +28,10 @@ poetry install --no-root
    Document Types: The application supports adding documents in PDF ,Json, URL and  CSV formats. You can uncomment the CSV line to add a CSV file as well.
 
 
-## FastApi(llm.py)
+## FastApi(backend/llm.py)
 This FastAPI application provides an interface for interacting with an Embedchain instance, which is used to process natural language queries. It also includes functionality for uploading files (PDF , JSON and CSV) to Embedchain's ChromaDB.
 
-## Streamlit (app.py)
+## Streamlit (frontend/app.py)
  chatbot interface in Streamlit that automatically handles multiple sessions, allowing users to chat with an assistant. The application interacts with a FastAPI endpoint to retrieve responses for user queries and automatically persists the chat history.
 
  ## Run The LLM
@@ -47,3 +47,6 @@ poetry run streamlit run app.py
 ![alt text](/screenshots/backend.png)
 ## Screenshots about user Interface
 ![alt text](/screenshots/image.png)
+
+## Note:
+We use requirements.txt instead of poetry in the dockerization because the image size is lighter !

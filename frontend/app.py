@@ -1,7 +1,5 @@
 import os
 import json
-from embedchain import App
-from fastapi import requests
 import streamlit as st
 import requests
 from datetime import datetime
