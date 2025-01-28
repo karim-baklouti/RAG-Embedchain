@@ -1,18 +1,21 @@
-# Base Python image
-FROM langchain/langchain
+# Use an official Python runtime as the base image
+FROM python:3.11-slim
 
-# Set working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy requirements file
-COPY requirements.txt /app/
+# Copy the requirements file into the container
+COPY requirements.txt .
 
-# Install dependencies
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt --timeout 1000
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the application code
-COPY . /app/
+# Copy the rest of the application code
+COPY . .
 
-# Run the FastAPI application
-CMD ["gunicorn", "-w", "3", "-k", "uvicorn.workers.UvicornWorker", "llm:app", "--bind", "0.0.0.0:8080", "--timeout", "10000"]
+# Expose the port for FastAPI
+EXPOSE 8080
+
+
+# Command to run the FastAPI app using Gunicorn
+CMD ["gunicorn", "llm:app", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:8080"]
