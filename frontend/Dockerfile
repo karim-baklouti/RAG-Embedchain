@@ -11,5 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application files to the container
 COPY . .
 
+EXPOSE 8501
 # cmd to run streamlit
-CMD streamlit run --server.port $PORT app.py 
+CMD streamlit run --server.port=8501  app.py 
