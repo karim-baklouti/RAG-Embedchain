@@ -3,6 +3,22 @@ import shutil
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from pydantic import BaseModel
 from embedchain_setup import initialize_app
+import logging
+
+# Initialize the logger
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+# Create a console handler and set level to debug
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.INFO)
+
+# Create a formatter and add it to the handler
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+console_handler.setFormatter(formatter)
+
+# Add the handler to the logger
+logger.addHandler(console_handler)
 
 # Initialize the Embedchain app
 app_embedchain = initialize_app()
@@ -18,13 +34,13 @@ class QueryRequest(BaseModel):
 @app.post("/query")
 async def query_app(request: QueryRequest):
     try:
-        # Use the Embedchain app to run the quer
-        
-        full_response = app_embedchain.query(request.query)
-        answer = full_response.split('Answer:')[-1].strip()
-        return {"answer": answer}
+        logger.info(f"Received query: {request.query}")
+        response = app_embedchain.query(input_query=request.query)
+        logger.info(f"Response: {response}")
+        return {"answer": response.split('Answer:')[-1].strip()}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        logger.error(f"Query error: {e}", exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Query error: {e}")
 # Define the FastAPI route for uploading files to ChromaDB
 @app.post("/upload")
 async def upload_file(file: UploadFile = File(...)):
