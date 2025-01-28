@@ -1,6 +1,11 @@
-langchain_huggingface== 0.1.0
-fastapi==0.104.0
-uvicorn==0.23.2
-embedchain==0.1.123
-python-multipart==0.0.6
-gunicorn == 23.0.0
+langchain_huggingface==0.1.2
+fastapi==0.115.7
+uvicorn==0.34.0
+gunicorn==23.0.0
+embedchain==0.1.126
+python-dotenv==1.0.1
+chromadb==0.5.23
+sentence-transformers==3.4.0
+huggingface-hub==0.27.1
+pydantic==2.10.6
+python-multipart==0.0.20
