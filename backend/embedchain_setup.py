@@ -39,7 +39,7 @@ config = {
         'provider': 'chroma',
         'config': {
             'collection_name': 'llm-store',
-            'host': 'chroma-service',  
+            'host': 'chroma-service',  # you can use localhost or you can comment this when working with local chroma db
             'port': 8000,        
             'allow_reset': True
         }
