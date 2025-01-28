@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: chroma
+  name: chroma
+  namespace: rag-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chroma
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: chroma
+    spec:
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: chroma-pvc
+      containers:
+      - image: chromadb/chroma:0.6.0
+        name: chroma
+        volumeMounts:
+        - name: data
+          mountPath: /chroma/.chroma/
+        resources: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: chroma-service
+  namespace: rag-bot
+  labels:
+    app: chroma
+spec:
+  selector:
+    app: chroma
+  ports:
+  - protocol: TCP
+    port: 8000
+    targetPort: 8000

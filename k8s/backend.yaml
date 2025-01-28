@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: rag-llm
+  name: rag-llm
+  namespace: rag-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rag-llm
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: rag-llm
+    spec:
+      containers:
+      - image: karimbk/llm
+        name: llm
+        resources: {}
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  namespace: rag-bot
+  labels:
+    app: rag-llm
+spec:
+  selector:
+    app: rag-llm
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
