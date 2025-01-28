@@ -19,7 +19,7 @@ config = {
     'llm': {
         'provider': 'huggingface',
         'config': {
-            'model': 'mistralai/Mistral-7B-Instruct-v0.2',
+            'model': 'deepseek-ai/DeepSeek-R1',
             'top_p': 0.1
         }
     },

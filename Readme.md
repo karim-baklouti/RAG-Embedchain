@@ -14,7 +14,7 @@ poetry install --no-root
    Model Configuration:
         Language Model (llm):
             Provider: huggingface
-            Model: mistralai/Mistral-7B-Instruct-v0.2
+            Model: deepseek-ai/DeepSeek-R1 
             Top P: Controls the diversity of the generated outputs (higher values lead to more diverse results).
         Embedder:
             Provider: huggingface
