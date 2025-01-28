@@ -50,3 +50,21 @@ poetry run streamlit run app.py
 
 ## Note:
 We use requirements.txt instead of poetry in the dockerization because the image size is lighter !
+
+# MLOPS(Docker and Kubernetes Workflow Documentation)
+
+This documentation describes the workflow for defining, building, and deploying Docker images for projects using Kubernetes.
+
+## Workflow Overview
+
+1. **Define a Dockerfile for each project**:
+   - Create a `Dockerfile` in the root directory of the project to specify the container image configuration.
+   - The `Dockerfile` should include all dependencies and application runtime configurations.
+
+2. **Push the Docker image to Docker Hub**:
+   - Build the Docker image locally or in a CI/CD pipeline.
+   - Tag the image with the appropriate repository and version.
+   - Push the image to the designated Docker Hub registry.
+
+3. **Organize Kubernetes deployment**:
+   - Store Kubernetes manifests (e.g., deployment, service, config maps) under the [`k8s/`](k8s/) folder folder within the project directory.
