@@ -1,4 +1,4 @@
-# chatbot for MLOps with Embedchain
+# Chatbot for MLOps with Embedchain
 
 ## Installation
 ### install Poetry
