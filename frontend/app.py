@@ -41,7 +41,7 @@ with st.sidebar:
         # Automatic request to the API with a default message
         default_query = "How can I help you?"  # You can customize this message
         payload = {"query": default_query}
-        response = requests.post("http://localhost:8000/query", json=payload)
+        response = requests.post("http://backend-service:8000/query", json=payload)
         data = response.json()
         answer = data.get("answer", "No answer found.")
         
@@ -74,7 +74,7 @@ with st.sidebar:
                     json.dump(st.session_state.session_history, f)
 
 # API URL for FastAPI
-API_URL = "http://localhost:8000/query"
+API_URL = "http://backend-service:8000/query"
 
 # Streamlit application layout
 st.title("MLOPS BOT")
